@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Your Email Address</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .verification-code {
+            background-color: #f8f9fa;
+            border: 2px dashed #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .code {
+            font-size: 32px;
+            font-weight: bold;
+            color: #007bff;
+            letter-spacing: 8px;
+            font-family: 'Courier New', monospace;
+        }
+        .button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">{{ site_name }}</div>
+            <h1>Verify Your Email Address</h1>
+        </div>
+
+        <p>Hello {{ user.first_name|default:user.email }},</p>
+
+        <p>Thank you for registering with {{ site_name }}! To complete your account setup, please verify your email address using the code below:</p>
+
+        <div class="verification-code">
+            <p><strong>Your verification code is:</strong></p>
+            <div class="code">{{ code }}</div>
+        </div>
+
+        <div class="warning">
+            <strong>Important:</strong> This verification code will expire in 15 minutes for security reasons.
+        </div>
+
+        <p>If you're using our mobile app or website, simply enter this code when prompted. If you have trouble with the code, you can also click the button below:</p>
+
+        <div style="text-align: center;">
+            <a href="{{ frontend_url }}/verify-email?email={{ user.email }}&code={{ code }}" class="button">
+                Verify Email Address
+            </a>
+        </div>
+
+        <p>If you didn't create an account with {{ site_name }}, please ignore this email. Your email address will not be added to our system.</p>
+
+        <div class="footer">
+            <p>This email was sent to {{ user.email }}</p>
+            <p>&copy; {{ site_name }}. All rights reserved.</p>
+            <p>If you have questions, please contact our support team.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+Verify Your Email Address
+
+Hello {{ user.first_name|default:user.email }},
+
+Thank you for registering with {{ site_name }}! To complete your account setup, please verify your email address using the code below:
+
+Your verification code is: {{ code }}
+
+Important: This verification code will expire in 15 minutes for security reasons.
+
+If you're using our mobile app or website, simply enter this code when prompted.
+
+You can also verify your email by visiting this link:
+{{ frontend_url }}/verify-email?email={{ user.email }}&code={{ code }}
+
+If you didn't create an account with {{ site_name }}, please ignore this email. Your email address will not be added to our system.
+
+This email was sent to {{ user.email }}
+
+© {{ site_name }}. All rights reserved.
+If you have questions, please contact our support team.
