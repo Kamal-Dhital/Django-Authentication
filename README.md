@@ -283,31 +283,6 @@ curl -X PUT "http://localhost:8000/auth/profile/" \
 - Unique filename generation
 - Secure file handling
 
-## 🛠️ Project Structure
-
-```
-authentication_system/
-├── __init__.py
-├── admin.py              # Django admin configuration
-├── apps.py               # App configuration
-├── models.py             # Enhanced CustomUser model
-├── serializers.py        # DRF serializers with validation
-├── views.py              # API views with OpenAPI docs
-├── urls.py               # URL routing
-├── permissions.py        # Custom permissions
-├── utils.py              # Helper functions
-├── image_utils.py        # Image processing utilities
-├── signals.py            # Django signals
-├── migrations/           # Database migrations
-└── templates/            # Email templates
-    └── authentication_system/
-        └── emails/
-            ├── verification_email.html
-            ├── verification_email.txt
-            ├── password_reset_email.html
-            └── password_reset_email.txt
-```
-
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
